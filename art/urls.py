@@ -26,9 +26,9 @@ urlpatterns = [
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('payment/', include('payment.urls', namespace='payment')),
-    path('', include('gallery.urls', namespace='gallery'))
-    url(r'^media/(?<path>.*)$', serve{'document_root':settings.MEDIA_ROOT})
-    url(r'^static/(?<path>.*)$', serve{'document_root':settings.STATIC_ROOT})
+    path('', include('gallery.urls', namespace='gallery')),
+    url(r'^media/(?<path>.*)$', serve{'document_root':settings.MEDIA_ROOT}),
+    url(r'^static/(?<path>.*)$', serve{'document_root':settings.STATIC_ROOT}),
 
 ]
 if settings.DEBUG:
