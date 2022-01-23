@@ -1,12 +1,10 @@
 amqp==5.0.6
 anyjson==0.3.3
 appdirs==1.4.4
-apturl
 asgiref==3.3.1
 attrs==21.2.0
 Automat==20.2.0
 bcrypt==3.1.7
-beautifulsoup4==4.10.0
 billiard==3.6.4.0
 blinker==1.4
 braintree==4.13.1
