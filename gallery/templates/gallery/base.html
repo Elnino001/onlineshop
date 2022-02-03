@@ -5,10 +5,28 @@
 <meta charset="utf-8" />
 <title>{% block title %}My shop{% endblock %}</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="{% static "css/base.css" %}" rel="stylesheet">
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
 </head>
 <body>
-<div id="header">
+  <div class="nav">
+    <img src="{% static "images/dark-logo.png" %}" class="brand-logo" alt="love">
+<div class="nav-items">
+    <div class="search">
+    <input type="text" class="search-box" placeholder="search 1place">
+    <button class="search-btn">search</button>
+    <a href="#"><img src="{% static "images/cart.png" %}" alt="add"></a>
+    </div>
+</div>
+</div>
+
+<ul class="links-containers">
+<li class="link-item"><a href="" class="link">home</a></li>
+<li class="link-item"><a href="" class="link">home</a></li>
+<li class="link-item"><a href="" class="link">home</a></li>
+<li class="link-item"><a href="" class="link">home</a></li>
+</ul>
+
+<!-- <div id="header">
 <a href="/" class="logo">One Place</a>
 </div>
 <div id="subheader">
@@ -27,7 +45,7 @@
 <i class="fa fa-shopping-cart"></i>
 </div>
 </div>
-<div id="content">
+<div id="content"> -->
 {% block content %}
 {% endblock %}
 </div>

@@ -10,7 +10,7 @@ def art_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
-    return render(request, 'gallery/art/list.html', {'category': category, 'categories': categories, 'products': products})
+    return render(request, 'gallery/art/index.html', {'category': category, 'categories': categories, 'products': products})
 
 def art_detail(request, id, slug):
     product = get_object_or_404(Art_Product, id=id, slug=slug, available=True)

@@ -1,0 +1,115 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+{% block content %}
+    <nav class="navbar"></nav>
+    <header class="hero-section">
+        <div class="contain">
+            <img src="{% static "images/light-logo.png" %}" class="logo" alt="">
+            <p class="sub-heading">best place for your Watches and art work</p>
+        </div>
+    </header>
+    <section class="product">
+        <h2 class="product-category">best selling</h2>
+        <button class="pre-btn"><img src="{% static "images/arrow.png" %}" alt=""></button>
+        <button class="nxt-btn"><img src="{% static "images/arrow.png" %}"alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- collections -->
+    <section class="collection-container">
+        <a href="" class="collection"><img src="{% static "images/img1.jpg" %}" alt=""><p class="collection-title">paintings</p></a>
+
+          <a href="" class="collection"><img src="{% static "images/img2.jpg" %}" alt=""><p class="collection-title">sculptures</p></a>
+
+        <a href="" class="collection"><img src="{% static "images/img3.jpg" %}" alt=""><p class="collection-title">paintings</p></a>
+
+    </section>
+    <!-- <script src="{% static "js/nav.js" %}"></script> -->
+    <script src="{% static "js/home.js" %}"></script>
+
+    {% endblock %}
