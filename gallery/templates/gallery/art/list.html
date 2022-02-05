@@ -4,7 +4,7 @@
 {% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
 {% block content %}
-<div id="sidebar">
+<!-- <div id="sidebar">
 <h3>Categories</h3>
 <ul>
 <li {% if not category %}class="selected"{% endif %}>
@@ -17,7 +17,7 @@
 </li>
 {% endfor %}
 </ul>
-</div>
+</div> -->
 <div id="main" class="product-list">
 <h1>{% if category %}{{ category.name }}{% else %}Products
 {% endif %}</h1>
@@ -30,8 +30,7 @@
 <img src="{% static 'img/no_image.png' %}" alt="">
 {% endif %}
 </a>
-<a href="{{ product.get_absolute_url }}">{{ product.name }}</
-a>
+<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
 <br>
 ${{ product.price }}
 </div>

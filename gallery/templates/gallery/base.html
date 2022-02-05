@@ -6,25 +6,35 @@
 <title>{% block title %}My shop{% endblock %}</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="{% static 'css/home.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer.css' %}" rel="stylesheet">
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+
 </head>
 <body>
-  <div class="nav">
-    <img src="{% static "images/dark-logo.png" %}" class="brand-logo" alt="love">
-<div class="nav-items">
-    <div class="search">
-    <input type="text" class="search-box" placeholder="search 1place">
-    <button class="search-btn">search</button>
-    <a href="#"><img src="{% static "images/cart.png" %}" alt="add"></a>
+  <nav class="navbar">
+    <div class="nav">
+      <img src="{% static "images/dark-logo.png" %}" class="brand-logo" alt="love">
+      <div class="nav-items">
+        <div class="search">
+          <input type="text" class="search-box" placeholder="search 1place">
+          <button class="search-btn">search</button>
+          <a href="#"><img src="{% static "images/cart.png" %}" alt="add"></a>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-
-<ul class="links-containers">
-<li class="link-item"><a href="" class="link">home</a></li>
-<li class="link-item"><a href="" class="link">home</a></li>
-<li class="link-item"><a href="" class="link">home</a></li>
-<li class="link-item"><a href="" class="link">home</a></li>
-</ul>
+    <ul class="links-containers">
+      <li {% if not category %}class="link-item"{% endif %}>
+        <a href="{% url 'gallery:art_list' %}" class="link">All</a>
+        </li>
+        {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="link-item"
+        {% endif %}><a href="{{ c.get_absolute_url }}" class="link">{{ c.name }}</a>
+      </li>
+      {% endfor %}
+      <li class="link-item"><a href="" class="link">home</a></li>
+      <li class="link-item"><a href="" class="link">home</a></li>
+    </ul>
+  </nav>
 
 <!-- <div id="header">
 <a href="/" class="logo">One Place</a>
@@ -46,8 +56,62 @@
 </div>
 </div>
 <div id="content"> -->
+
+ 
 {% block content %}
 {% endblock %}
+<footer>
+  <div class="footer-content">
+    <img src="{% static "images/light-logo.png" %}" class="logo" alt="">
+   <div class="footer-ul-container">
+    <ul class="category">
+        <li class="category-title">men</li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+    </ul> 
+
+    <ul class="category">
+        <li class="category-title">women</li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+    </ul>
+
+    <ul class="category">
+        <li class="category-title">men</li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+        <li><a href="#" class="footer-link">jdjdjd</a></li>
+    </ul>
 </div>
+
+</div>
+<p class="footer-title">about oneplace</p>
+<p class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquam repellat, laudantium perferendis veritatis soluta assumenda ea sapiente, quisquam modi obcaecati possimus laboriosam quae animi eos facilis exercitationem illum tempore cumque consequuntur architecto itaque. Obcaecati, cum quisquam. Quasi similique quaerat aperiam cumque iste exercitationem totam dicta, dolorum cupiditate suscipit, rerum quis consequatur excepturi tempore ullam eaque quos temporibus. Quod optio assumenda error dolorum, veritatis aliquam officia vel et, soluta qui totam a eius atque deserunt laudantium ex! Cupiditate aliquam assumenda fuga minus eius necessitatibus libero magni, aspernatur laudantium ducimus adipisci cumque ex natus rem perspiciatis excepturi mollitia, alias incidunt officiis.</p>
+<p class="info">support email-example@gmail.com</p>
+<p class="info">telephone-098234222383</p>
+<div class="footer-social-container">
+    <div>
+        <a href="" class="social-links">terms & conditions</a>
+        <a href="" class="social-links">privacy page</a>
+    </div>
+    <div>
+        <a href="" class="social-links">facebook</a>
+        <a href="" class="social-links">instagram</a>
+        <a href="" class="social-links">twitter</a>
+    </div>
+</div>
+<p class="footer-credit">oneplace, best art gallery online store</p>
+</footer>
 </body>
 </html>

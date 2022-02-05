@@ -1,7 +1,10 @@
 {% extends "gallery/base.html" %}
 {% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
 {% block content %}
-    <nav class="navbar"></nav>
+    
     <header class="hero-section">
         <div class="contain">
             <img src="{% static "images/light-logo.png" %}" class="logo" alt="">
@@ -9,94 +12,34 @@
         </div>
     </header>
     <section class="product">
-        <h2 class="product-category">best selling</h2>
+        <h2 class="product-category">{% if category %}{{ category.name }}{% else %}Products
+            {% endif %}</h2>
         <button class="pre-btn"><img src="{% static "images/arrow.png" %}" alt=""></button>
         <button class="nxt-btn"><img src="{% static "images/arrow.png" %}"alt=""></button>
         <div class="product-container">
+            {% for product in products %}
             <div class="product-card">
                 <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
+                    <!-- <span class="discount-tag">50% off</span> -->
+                    <a href="{{ product.get_absolute_url }}">
+                        {% if product.image %}
+                      <img src="{{ product.image.url }}" class="product-thumb">
+                      {%else %}
+                      <img src="{% static 'img/no_image.png' %}" class="product-thumb" alt="">
+                      {% endif %}
+                      </a>
+
+                    <!-- <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
+                    <button class="card-btn">add to whislist</button> -->
                 </div>
                 <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
+                    <a href="{{ product.get_absolute_url }}" class="product-brand">{{ product.name }}</a>
+                    <p></p>
+                    <span class="actual-price">${{ product.price }}</span>
                 </div>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="{% static "images/card1.png" %}" alt="" class="product-thumb">
-                    <button class="card-btn">add to whislist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
-            </div>
+            {% endfor %}
+            
         </div>
     </section>
 
