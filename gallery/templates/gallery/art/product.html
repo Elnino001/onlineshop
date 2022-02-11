@@ -6,7 +6,7 @@
 {% block content %}
 
 <section class="product-details">
-<div class="image-slider">
+<div class="image-slider" style="background-image: url({{product.image.url}})">
     <div class="product-images">
         <img src="{% if product.image %}{{ product.image.url }}{% else %}
         {% static 'img/no_image.png'%}{% endif %}" class="active">
