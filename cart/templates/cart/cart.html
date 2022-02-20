@@ -1,0 +1,63 @@
+{% extends "gallery/base.html" %}
+{% load static %}
+{% block title %}
+Your shopping cart
+{% endblock %}
+
+{% block content %}
+    <div class="cart-section">
+        <div class="product-lists">
+            <p class="section-heading">your cart</p>
+            <div class="cart">
+                {% for item in cart %}
+                {% with product=item.product %}
+                <!-- cart products goes here -->
+                <div class="sm-product">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{% if product.image %}{{ product.image.url}}
+                        {% else %}{% static 'img/no_image.png' %}{% endif %}" class="sm-product-img">
+                        </a>
+                    <!-- <img src="img/product image 1.png" alt="" class="sm-product-img"> -->
+                    <div class="sm-text">
+
+                        <p class="sm-product-name">{{ product.name }}</p>
+                        <p class="sm-des"> this ia a short desc</p>
+                    </div>
+                    <div class="item-counter">
+                        <!-- <form action="{% url "cart:cart_add" product.id %}" method="post">
+                            {{ item.update_quantity_form.quantity }}
+                            {{ item.update_quantity_form.override }}
+                            <input type="submit" value="Update">
+                            {% csrf_token %}
+                            </form>
+
+                            <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                                <input type="submit" value="Remove">
+                                {% csrf_token %}
+                                </form> -->
+                        <button class="counter-btn decrement">-</button>
+                        <p class="item-count">1</p>
+                        <button class="counter-btn increment">1</button>
+                    </div>
+                    <p class="sm-price">${{ item.price }}</p>
+                    <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                        <button class="sm-delete-btn"><img src="{% static 'images/close.png' %}" alt=""></button>
+                        {% csrf_token %}
+                    </form> 
+                    
+                </div>
+                {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="checkout-section">
+            <div class="checkout-box">
+                <p class="text">your total bill,</p>
+                <h1 class="bill">${{ cart.get_total_price }}</h1>
+                <a href="{% url 'orders:order_create' %}" class="checkout-btn">checkout</a>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+    
